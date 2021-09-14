@@ -15,14 +15,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1400.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Login">
+<AnchorPane prefHeight="768.0" prefWidth="1400.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.Login">
    <children>
-      <AnchorPane layoutX="210.0" layoutY="64.0" prefHeight="643.0" prefWidth="991.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: ;" styleClass="mainFxmlClass" stylesheets="@CSS/Borderradius.css">
+      <AnchorPane layoutX="210.0" layoutY="64.0" prefHeight="643.0" prefWidth="991.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: ;" styleClass="mainFxmlClass" stylesheets="@../CSS/Borderradius.css">
          <children>
             <Pane layoutX="88.0" layoutY="120.0" />
             <ImageView fitHeight="548.0" fitWidth="496.0" layoutX="27.0" layoutY="51.0">
                <image>
-                  <Image url="@Images/4860253.jpg" />
+                  <Image url="@../Images/LoginImage.jpg" />
                </image>
             </ImageView>
             <Text fill="#0f0f0f" layoutX="606.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Not registered yet ?" wrappingWidth="190.3543701171875">
@@ -30,11 +30,11 @@
                   <Font name="Montserrat Medium" size="15.0" />
                </font>
             </Text>
-            <Text fill="#0092f3" layoutX="763.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create an Account">
+            <Button layoutX="752.0" layoutY="492.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Create an Account" textFill="#0092f3">
                <font>
                   <Font name="Montserrat Medium" size="15.0" />
                </font>
-            </Text>
+            </Button>
             <Text layoutX="562.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
                <font>
                   <Font name="Montserrat SemiBold" size="30.0" />
@@ -63,11 +63,11 @@
                   <Font name="Montserrat Medium" size="15.0" />
                </font>
             </Text>
-            <Text fill="#0092f3" layoutX="788.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forget Password ?">
+            <Button layoutX="775.0" layoutY="328.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Forget Password ?" textFill="#0092f3">
                <font>
                   <Font name="Montserrat Medium" size="15.0" />
                </font>
-            </Text>
+            </Button>
             <Line endX="14.54107666015625" layoutX="672.0" layoutY="397.0" startX="-100.0" stroke="#adaaaa" />
             <Line endX="14.54107666015625" layoutX="907.0" layoutY="397.0" startX="-100.0" stroke="#adaaaa" />
             <Text fill="#adaaaa" layoutX="706.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="or Login with ">
@@ -77,15 +77,15 @@
             </Text>
             <ImageView fitHeight="33.0" fitWidth="32.0" layoutX="688.0" layoutY="437.0">
                <image>
-                  <Image url="@Images/search.png" />
+                  <Image url="@../Images/Google.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="33.0" fitWidth="38.0" layoutX="766.0" layoutY="435.0">
                <image>
-                  <Image url="@Images/facebook.png" />
+                  <Image url="@../Images/facebook.png" />
                </image>
             </ImageView>
-            <Pane prefHeight="39.0" prefWidth="991.0" style="-fx-background-color: #f3f3f3#f3f3f3;" styleClass="mainFxmlClass" stylesheets="@CSS/PanelRadius.css" />
+            <Pane prefHeight="39.0" prefWidth="991.0" style="-fx-background-color: #f3f3f3#f3f3f3;" styleClass="mainFxmlClass" stylesheets="@../CSS/PanelRadius.css" />
             <Circle fill="#ff5f57" layoutX="18.0" layoutY="19.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
             <Circle fill="#ffbc2f" layoutX="43.0" layoutY="19.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
             <Circle fill="#27c940" layoutX="69.0" layoutY="19.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />

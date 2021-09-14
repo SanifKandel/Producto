@@ -15,12 +15,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1400.0" style="-fx-background-color: tramsparent;" styleClass="backgroundColor" stylesheets="@CSS/back.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.Registration">
    <children>
-      <AnchorPane layoutX="210.0" layoutY="64.0" prefHeight="643.0" prefWidth="991.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 20 pixels;" styleClass="mainFxmlClass" stylesheets="@CSS/Borderradius.css">
+      <AnchorPane layoutX="210.0" layoutY="64.0" prefHeight="643.0" prefWidth="991.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 20 pixels;" styleClass="mainFxmlClass" stylesheets="@../CSS/Borderradius.css">
          <children>
             <Pane layoutX="88.0" layoutY="120.0" />
             <ImageView fitHeight="548.0" fitWidth="496.0" layoutX="40.0" layoutY="51.0">
                <image>
-                  <Image url="@Images/Mobile%20login-01.png" />
+                  <Image url="@../Images/SignUpImage.png" />
                </image>
             </ImageView>
             <Text fill="#a9a9a9" layoutX="744.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have account ?" wrappingWidth="190.3543701171875">
@@ -28,11 +28,11 @@
                   <Font name="Montserrat Medium" size="15.0" />
                </font>
             </Text>
-            <Text fill="#0092f3" layoutX="924.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+            <Button layoutX="914.0" layoutY="53.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Login" textFill="#0092f3">
                <font>
                   <Font name="Montserrat Medium" size="15.0" />
                </font>
-            </Text>
+            </Button>
             <Text layoutX="571.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create account">
                <font>
                   <Font name="Montserrat SemiBold" size="30.0" />
@@ -92,7 +92,7 @@
             </DropShadow>
          </effect>
       </AnchorPane>
-      <Pane layoutX="210.0" layoutY="64.0" prefHeight="39.0" prefWidth="991.0" style="-fx-background-color: #f3f3f3#f3f3f3;" styleClass="mainFxmlClass" stylesheets="@CSS/PanelRadius.css" />
+      <Pane layoutX="210.0" layoutY="64.0" prefHeight="39.0" prefWidth="991.0" style="-fx-background-color: #f3f3f3#f3f3f3;" styleClass="mainFxmlClass" stylesheets="@../CSS/PanelRadius.css" />
       <Circle fill="#ff5f57" layoutX="228.0" layoutY="83.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#ffbc2f" layoutX="253.0" layoutY="83.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#27c940" layoutX="279.0" layoutY="83.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
