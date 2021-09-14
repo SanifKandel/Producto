@@ -1,0 +1,8 @@
+.mainFxmlClass {
+  #pane{
+    -fx-background-size: 1200 900;
+    -fx-background-radius: 15 15 0 0;
+    -fx-border-radius: 0 0 18 18;
+    -fx-background-color: #FC3D44;
+  }
+}
