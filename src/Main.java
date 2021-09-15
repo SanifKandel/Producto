@@ -9,6 +9,7 @@ import javafx.stage.StageStyle;
 import java.util.Objects;
 
 public class Main extends Application {
+    static double  xOffset, yOffset;
 
 
     @Override
@@ -19,12 +20,24 @@ public class Main extends Application {
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
             primaryStage.setScene(scene);
+            stageDragable(root,primaryStage);
             primaryStage.initStyle(StageStyle.TRANSPARENT);
             primaryStage.show();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public static void stageDragable(Parent root, Stage stage){
+        root.setOnMousePressed(mouseEvent -> {
+            xOffset = mouseEvent.getSceneX();
+            yOffset = mouseEvent.getSceneY();
+        });
+
+        root.setOnMouseDragged(mouseEvent -> {
+            stage.setX(mouseEvent.getScreenX()-xOffset);
+            stage.setY(mouseEvent.getScreenY()-yOffset);
+        });
     }
     public static void main(String[] args) {
         launch(args);

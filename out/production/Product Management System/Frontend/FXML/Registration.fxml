@@ -13,14 +13,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1400.0" style="-fx-background-color: tramsparent;" styleClass="backgroundColor" stylesheets="@CSS/back.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.Registration">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1400.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Registration">
    <children>
-      <AnchorPane layoutX="210.0" layoutY="64.0" prefHeight="643.0" prefWidth="991.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 20 pixels;" styleClass="mainFxmlClass" stylesheets="@CSS/Borderradius.css">
+      <AnchorPane layoutX="210.0" layoutY="64.0" prefHeight="643.0" prefWidth="991.0" style="-fx-background-color: #FFFFFF;" styleClass="mainFxmlClass" stylesheets="@../CSS/Borderradius.css">
          <children>
             <Pane layoutX="88.0" layoutY="120.0" />
             <ImageView fitHeight="548.0" fitWidth="496.0" layoutX="40.0" layoutY="51.0">
                <image>
-                  <Image url="@Images/Mobile%20login-01.png" />
+                  <Image url="@../Images/SignUpImage.png" />
                </image>
             </ImageView>
             <Text fill="#a9a9a9" layoutX="744.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have account ?" wrappingWidth="190.3543701171875">
@@ -28,17 +28,17 @@
                   <Font name="Montserrat Medium" size="15.0" />
                </font>
             </Text>
-            <Text fill="#0092f3" layoutX="924.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+            <Button fx:id="Login" layoutX="914.0" layoutY="53.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Login" textFill="#0092f3">
                <font>
                   <Font name="Montserrat Medium" size="15.0" />
                </font>
-            </Text>
+            </Button>
             <Text layoutX="571.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create account">
                <font>
                   <Font name="Montserrat SemiBold" size="30.0" />
                </font>
             </Text>
-            <TextField layoutX="572.0" layoutY="181.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;">
+            <TextField fx:id="Fullname" layoutX="572.0" layoutY="181.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;">
                <font>
                   <Font name="Montserrat Medium" size="13.0" />
                </font>
@@ -48,7 +48,7 @@
                   <Font name="Montserrat Medium" size="16.0" />
                </font>
             </Text>
-            <TextField layoutX="572.0" layoutY="261.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
+            <TextField fx:id="EmailField" layoutX="572.0" layoutY="261.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
             <Text layoutX="573.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
                <font>
                   <Font name="Montserrat Medium" size="16.0" />
@@ -59,26 +59,26 @@
                   <Font name="Montserrat Medium" size="16.0" />
                </font>
             </Text>
-            <TextField layoutX="572.0" layoutY="341.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
+            <TextField fx:id="PhoneNo" layoutX="572.0" layoutY="341.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
             <Text layoutX="574.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
                <font>
                   <Font name="Montserrat Medium" size="16.0" />
                </font>
             </Text>
-            <TextField layoutX="572.0" layoutY="424.0" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
+            <TextField fx:id="password" layoutX="572.0" layoutY="424.0" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
             <Text layoutX="777.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm">
                <font>
                   <Font name="Montserrat Medium" size="16.0" />
                </font>
             </Text>
-            <TextField layoutX="777.0" layoutY="424.0" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
-            <CheckBox layoutX="576.0" layoutY="491.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="15.0" style="-fx-content-display: #3fa2f9#3fa2f9 #3fa2f9#3fa2f9;" textFill="DARKGRAY" />
+            <TextField fx:id="Confirm" layoutX="777.0" layoutY="424.0" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
+            <CheckBox fx:id="Tick" layoutX="576.0" layoutY="491.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="15.0" textFill="DARKGRAY" />
             <Text fill="DARKGRAY" layoutX="599.0" layoutY="501.0" strokeType="OUTSIDE" strokeWidth="0.0" text="By creating an account, you agree to the Terms &amp; Conditions, and Privacy Policy." wrappingWidth="345.7958984375">
                <font>
                   <Font name="Montserrat Medium" size="12.0" />
                </font>
             </Text>
-            <Button layoutX="575.0" layoutY="537.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="370.0" style="-fx-background-color: #3fa2f9#3fa2f9;" text="Create account" textFill="WHITE">
+            <Button layoutX="575.0" layoutY="537.0" mnemonicParsing="false" onAction="#register" prefHeight="45.0" prefWidth="370.0" style="-fx-background-color: #3fa2f9#3fa2f9;" text="Create account" textFill="WHITE">
                <font>
                   <Font name="Montserrat SemiBold" size="19.0" />
                </font>
@@ -92,7 +92,7 @@
             </DropShadow>
          </effect>
       </AnchorPane>
-      <Pane layoutX="210.0" layoutY="64.0" prefHeight="39.0" prefWidth="991.0" style="-fx-background-color: #f3f3f3#f3f3f3;" styleClass="mainFxmlClass" stylesheets="@CSS/PanelRadius.css" />
+      <Pane layoutX="210.0" layoutY="64.0" prefHeight="39.0" prefWidth="991.0" style="-fx-background-color: #f3f3f3;" styleClass="mainFxmlClass" stylesheets="@../CSS/PanelRadius.css" />
       <Circle fill="#ff5f57" layoutX="228.0" layoutY="83.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#ffbc2f" layoutX="253.0" layoutY="83.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#27c940" layoutX="279.0" layoutY="83.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
