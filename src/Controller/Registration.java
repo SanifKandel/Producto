@@ -3,22 +3,32 @@ package Controller;
 import DB.DatabaseConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.io.IOException;
+import java.sql.*;
+
+import static Controller.Login.stageDragable;
 
 
 public class Registration {
+    Stage stage;
+    Scene scene;
+    Parent root;
+    static double  xOffset, yOffset;
     Connection Conn;
+    DatabaseConnection Db = new DatabaseConnection();
     @FXML
     private Button createaccount;
     @FXML
@@ -44,95 +54,63 @@ public class Registration {
     }
 
     @FXML
-    private void register(){
-        if(true){
-            try {
-                System.out.println("Success");
-                adduser();
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
+    private void register(ActionEvent e) throws SQLException {
+        if(adduser()){
+            switchtologin(e);
+
         }
         else{
             System.out.println("Falseee");
         }
     }
 
-    private void adduser() throws SQLException {
+    private boolean adduser() throws SQLException {
 
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//            Conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/producto","root","#J@v@978");
+        Connection Conn = Db.getConnection();
+
             if(Conn != null){
-            PreparedStatement adduser = Conn.prepareStatement("insert into tbl_user values (?,?,?,?)");
+                PreparedStatement adduser = Conn.prepareStatement("insert into tbl_user(user_name,email,phone_No,password) values (?,?,?,?)");
             adduser.setString(1,Fullname.getText());
             adduser.setString(2,EmailField.getText());
             adduser.setString(3,PhoneNo.getText());
             adduser.setString(4,password.getText());
+            adduser.executeUpdate();
             adduser.close();
             Conn.close();
+            return true;
 
             }
-            else{
-                System.out.println("Database is not connected");
-            }
+            else { return false; }
+    }
 
+    private void switchtologin (ActionEvent singupevent){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Frontend/FXML/Login.fxml"));
+            root = fxmlLoader.load();
+            stage = (Stage) ((Node) singupevent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stageDragable(root,stage);
+            scene.setFill(Color.TRANSPARENT);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
 
     }
+
+    public static void stageDragable(Parent root, Stage stage){
+        root.setOnMousePressed(mouseEvent -> {
+            xOffset = mouseEvent.getSceneX();
+            yOffset = mouseEvent.getSceneY();
+        });
+
+        root.setOnMouseDragged(mouseEvent -> {
+            stage.setX(mouseEvent.getScreenX()-xOffset);
+            stage.setY(mouseEvent.getScreenY()-yOffset);
+        });
+    }
+
 }
 
 
-//        if(fname.equals(""))
-//        {
-//            .showMessageDialog(null, "Add A Username");
-//        }
-//
-//        else if(pass.equals(""))
-//        {
-//            JOptionPane.showMessageDialog(null, "Add A Password");
-//        }
-//        else if(!pass.equals(re_pass))
-//        {
-//            JOptionPane.showMessageDialog(null, "Retype The Password Again");
-//        }
-
-//        else if(checkUsername(uname))
-//        {
-//            JOptionPane.showMessageDialog(null, "This Username Already Exist");
-//        }
-//
-//        else{
-//
-//            PreparedStatement ps;
-//            String query = "INSERT INTO `the_app_users`(`u_fname`, `u_lname`, `u_uname`, `u_pass`, `u_bdate`, `u_address`) VALUES (?,?,?,?,?,?)";
-//
-//            try {
-//                ps = DatabaseConnection.getConnection().prepareStatement(query);
-//
-//                ps.setString(1, fname);
-//                ps.setString(2, );
-//                ps.setString(3, uname);
-//                ps.setString(4, pass);
-//
-//                if(bdate != null)
-//                {
-//                    ps.setString(5, bdate);
-//                }else{
-//                    ps.setNull(5, 0);
-//                }
-//                ps.setString(6, address);
-//
-//                if(ps.executeUpdate() > 0)
-//                {
-//                    JOptionPane.showMessageDialog(null, "New User Add");
-//                }
-//
-//            } catch (SQLException ex) {
-//                Logger.getLogger(RegisterForm.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//
-//
-//
-//
-//
-//}

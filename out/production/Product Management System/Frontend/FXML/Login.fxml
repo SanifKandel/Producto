@@ -40,19 +40,19 @@
                   <Font name="Montserrat SemiBold" size="30.0" />
                </font>
             </Text>
-            <TextField layoutX="563.0" layoutY="184.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
+            <TextField fx:id="EmailField" layoutX="563.0" layoutY="184.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
             <Text layoutX="563.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
                <font>
                   <Font name="Montserrat Medium" size="16.0" />
                </font>
             </Text>
-            <PasswordField layoutX="564.0" layoutY="281.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
+            <PasswordField fx:id="PassField" layoutX="564.0" layoutY="281.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
             <Text layoutX="564.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
                <font>
                   <Font name="Montserrat Medium" size="16.0" />
                </font>
             </Text>
-            <Button layoutX="566.0" layoutY="537.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="370.0" style="-fx-background-color: #3fa2f9#3fa2f9;" text="Login" textFill="WHITE">
+            <Button layoutX="566.0" layoutY="537.0" mnemonicParsing="false" onAction="#onlogin" prefHeight="45.0" prefWidth="370.0" style="-fx-background-color: #3fa2f9#3fa2f9;" text="Login" textFill="WHITE">
                <font>
                   <Font name="Montserrat SemiBold" size="19.0" />
                </font>
