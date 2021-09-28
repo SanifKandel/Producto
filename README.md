@@ -75,8 +75,8 @@ Features:
 Producto is free to use and open source. So, You can also contribute to this project. 
 
 ### Built With
-
-![Java](https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg)
+<p align="left"> <a href="https://www.java.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="80" height="80"/> </a> <a href="https://www.mysql.com" target="_blank"> <img src="https://www.mysql.com/common/logos/logo-mysql-170x115.png" alt="mysql" width="100" height="80"/> </a><a href="https://www.jetbrains.com" target="_blank"> <img src="https://idroot.us/wp-content/uploads/2019/04/intellij-logo.png" alt="Intellij" width="100" height="80"/> </a></p>
+  
 * [Java 16](https://www.oracle.com/java/technologies/downloads/)
 * [JavaFx](https://openjfx.io/)
 * [SceneBuilder](https://gluonhq.com/products/scene-builder/)
@@ -96,10 +96,8 @@ Here are the things you need to install to run this project:
 
 * [Java 16](https://www.oracle.com/java/technologies/downloads/)
 * [JavaFx](https://openjfx.io/)
-* [JFoenix](http://www.jfoenix.com/)
 * [MySql](https://www.mysql.com/)
 * [JDBC](https://dev.mysql.com/downloads/connector/j/)
-* [Database ERD](https://github.com/Anurag-Bharati/Twilight/blob/main/src/main/resources/database_erd.png)
 
 
 ### Installation
@@ -123,5 +121,7 @@ Here are the things you need to install to run this project:
 <!-- CONTACT -->
 ## Contact
 
-[![Facebook][facebook-shield]][facebook-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+<p align="left">
+<a href="https://twitter.com/sanif_kandel" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="sanif_kandel" height="30" width="40" /></a>
+<a href="https://linkedin.com/in/sanif-kandel" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="sanif-kandel" height="30" width="40" /></a>
+</p>
