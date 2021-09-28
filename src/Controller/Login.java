@@ -1,6 +1,10 @@
 package Controller;
 
 import DB.DatabaseConnection;
+import javafx.animation.FadeTransition;
+import javafx.animation.Interpolator;
+import javafx.animation.ScaleTransition;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,11 +14,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 
 import java.io.IOException;
@@ -34,7 +40,7 @@ public class Login {
     Parent root;
     static double xOffset, yOffset;
 
-
+    @FXML private AnchorPane rootstage;
     @FXML
     private Button login;
     @FXML
@@ -42,7 +48,7 @@ public class Login {
     @FXML
     private PasswordField PassField;
     @FXML
-    private Circle red;
+    private Button red;
     @FXML
     private Circle yellow;
 //    @FXML private Button ForgetPassword;
@@ -144,7 +150,34 @@ public class Login {
             System.out.println("Surry");
         }
 
+    }
 
+    @FXML
+    public void onQuit(ActionEvent actionEvent){
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(.4), rootstage);
+        ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(.4), rootstage);
+
+        scaleTransition.setInterpolator(Interpolator.EASE_IN);
+
+        scaleTransition.setByX(.05);
+
+
+
+        fadeTransition.setInterpolator(Interpolator.EASE_IN);
+        fadeTransition.setFromValue(1.0);
+        fadeTransition.setToValue(0);
+
+        scaleTransition.play();
+        fadeTransition.play();
+
+        fadeTransition.setOnFinished(actionEvent1 -> {
+            scaleTransition.stop();
+            fadeTransition.stop();
+            stage.close();
+            Platform.exit();
+            System.exit(0);
+        });
     }
 
     public static void stageDragable(Parent root, Stage stage) {
@@ -158,6 +191,7 @@ public class Login {
             stage.setY(mouseEvent.getScreenY() - yOffset);
         });
     }
+
 
 
 }

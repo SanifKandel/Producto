@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1400.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Login">
+<AnchorPane fx:id="rootstage" prefHeight="768.0" prefWidth="1400.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Login">
    <children>
       <AnchorPane layoutX="210.0" layoutY="64.0" prefHeight="643.0" prefWidth="991.0" style="-fx-background-color: #FFFFFF;" styleClass="mainFxmlClass" stylesheets="@../CSS/Borderradius.css">
          <children>
@@ -85,8 +85,17 @@
                   <Image url="@../Images/facebook.png" />
                </image>
             </ImageView>
-            <Pane prefHeight="39.0" prefWidth="991.0" style="-fx-background-color: #f3f3f3;" styleClass="mainFxmlClass" stylesheets="@../CSS/PanelRadius.css" />
-            <Circle fill="#ff5f57" layoutX="18.0" layoutY="19.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Pane prefHeight="39.0" prefWidth="991.0" style="-fx-background-color: #f3f3f3;" styleClass="mainFxmlClass" stylesheets="@../CSS/PanelRadius.css">
+               <children>
+                  <Button fx:id="red" layoutX="-1.0" layoutY="4.0" mnemonicParsing="false" onAction="#onQuit" prefHeight="20.0" prefWidth="24.0" style="-fx-background-color: transparent;">
+                     <font>
+                        <Font name="Montserrat SemiBold" size="16.0" />
+                     </font>
+                     <graphic>
+                        <Circle fill="#ff5f57" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                     </graphic>
+                  </Button>
+               </children></Pane>
             <Circle fill="#ffbc2f" layoutX="43.0" layoutY="19.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
             <Circle fill="#27c940" layoutX="69.0" layoutY="19.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
          </children>

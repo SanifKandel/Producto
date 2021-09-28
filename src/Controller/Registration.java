@@ -1,6 +1,10 @@
 package Controller;
 
 import DB.DatabaseConnection;
+import javafx.animation.FadeTransition;
+import javafx.animation.Interpolator;
+import javafx.animation.ScaleTransition;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,10 +12,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 
 import java.io.IOException;
 import java.sql.*;
@@ -26,6 +33,7 @@ public class Registration {
     static double xOffset, yOffset;
     Connection Conn;
     DatabaseConnection Db = new DatabaseConnection();
+    @FXML private AnchorPane rootstage;
     @FXML
     private Button createaccount;
     @FXML
@@ -41,7 +49,7 @@ public class Registration {
     @FXML
     private Button Login;
     @FXML
-    private Circle red;
+    private Button red;
     @FXML
     private CheckBox Tick;
 
@@ -129,6 +137,34 @@ public class Registration {
             e.printStackTrace();
         }
 
+    }
+
+    @FXML
+    public void onQuit(ActionEvent actionEvent){
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(.4), rootstage);
+        ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(.4), rootstage);
+
+        scaleTransition.setInterpolator(Interpolator.EASE_IN);
+
+        scaleTransition.setByX(.05);
+
+
+
+        fadeTransition.setInterpolator(Interpolator.EASE_IN);
+        fadeTransition.setFromValue(1.0);
+        fadeTransition.setToValue(0);
+
+        scaleTransition.play();
+        fadeTransition.play();
+
+        fadeTransition.setOnFinished(actionEvent1 -> {
+            scaleTransition.stop();
+            fadeTransition.stop();
+            stage.close();
+            Platform.exit();
+            System.exit(0);
+        });
     }
 
     public static void stageDragable(Parent root, Stage stage) {

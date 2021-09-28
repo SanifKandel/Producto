@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1400.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Registration">
+<AnchorPane fx:id="rootstage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1400.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Registration">
    <children>
       <AnchorPane layoutX="210.0" layoutY="64.0" prefHeight="643.0" prefWidth="991.0" style="-fx-background-color: #FFFFFF;" styleClass="mainFxmlClass" stylesheets="@../CSS/Borderradius.css">
          <children>
@@ -93,8 +93,15 @@
          </effect>
       </AnchorPane>
       <Pane layoutX="210.0" layoutY="64.0" prefHeight="39.0" prefWidth="991.0" style="-fx-background-color: #f3f3f3;" styleClass="mainFxmlClass" stylesheets="@../CSS/PanelRadius.css" />
-      <Circle fill="#ff5f57" layoutX="228.0" layoutY="83.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="#ffbc2f" layoutX="253.0" layoutY="83.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="#27c940" layoutX="279.0" layoutY="83.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Button fx:id="red" layoutX="209.0" layoutY="67.0" mnemonicParsing="false" onAction="#onQuit" prefHeight="20.0" prefWidth="24.0" style="-fx-background-color: transparent;">
+         <font>
+            <Font name="Montserrat SemiBold" size="16.0" />
+         </font>
+         <graphic>
+            <Circle fill="#ff5f57" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+         </graphic>
+      </Button>
+      <Circle fill="#ffbc2f" layoutX="253.0" layoutY="82.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#27c940" layoutX="279.0" layoutY="82.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
    </children>
 </AnchorPane>
