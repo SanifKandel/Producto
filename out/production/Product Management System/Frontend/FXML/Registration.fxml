@@ -28,7 +28,7 @@
                   <Font name="Montserrat Medium" size="15.0" />
                </font>
             </Text>
-            <Button fx:id="Login" layoutX="914.0" layoutY="53.0" mnemonicParsing="false" onAction="#switchtologin" style="-fx-background-color: transparent;" text="Login" textFill="#0092f3">
+            <Button fx:id="Login" layoutX="914.0" layoutY="53.0" mnemonicParsing="false" onAction="#switchToLogin" style="-fx-background-color: transparent;" text="Login" textFill="#0092f3">
                <font>
                   <Font name="Montserrat Medium" size="15.0" />
                </font>
