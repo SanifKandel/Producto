@@ -10,18 +10,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1400.0" style="-fx-background-color: #a8e9ff#a8e9ff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.Login">
+<AnchorPane fx:id="rootstage" prefHeight="768.0" prefWidth="1400.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Login">
    <children>
-      <AnchorPane layoutX="210.0" layoutY="64.0" prefHeight="643.0" prefWidth="991.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: ;" styleClass="mainFxmlClass" stylesheets="@CSS/Borderradius.css">
+      <AnchorPane layoutX="210.0" layoutY="64.0" prefHeight="643.0" prefWidth="991.0" style="-fx-background-color: #FFFFFF;" styleClass="mainFxmlClass" stylesheets="@../CSS/Borderradius.css">
          <children>
             <Pane layoutX="88.0" layoutY="120.0" />
             <ImageView fitHeight="548.0" fitWidth="496.0" layoutX="27.0" layoutY="51.0">
                <image>
-                  <Image url="@../../../../Study/Sem%202/Project%20Resources/4860253.jpg" />
+                  <Image url="@../Images/LoginImage.jpg" />
                </image>
             </ImageView>
             <Text fill="#0f0f0f" layoutX="606.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Not registered yet ?" wrappingWidth="190.3543701171875">
@@ -29,29 +30,35 @@
                   <Font name="Montserrat Medium" size="15.0" />
                </font>
             </Text>
-            <Text fill="#0092f3" layoutX="763.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create an Account">
+            <Button layoutX="752.0" layoutY="492.0" mnemonicParsing="false" onAction="#switchToSignup" style="-fx-background-color: transparent;" text="Create an Account" textFill="#0092f3">
                <font>
                   <Font name="Montserrat Medium" size="15.0" />
                </font>
-            </Text>
+            </Button>
             <Text layoutX="562.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
                <font>
                   <Font name="Montserrat SemiBold" size="30.0" />
                </font>
             </Text>
-            <TextField layoutX="563.0" layoutY="184.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
+            <TextField fx:id="EmailField" layoutX="563.0" layoutY="184.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;">
+               <font>
+                  <Font name="Montserrat Medium" size="13.0" />
+               </font></TextField>
             <Text layoutX="563.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
                <font>
                   <Font name="Montserrat Medium" size="16.0" />
                </font>
             </Text>
-            <PasswordField layoutX="564.0" layoutY="281.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
+            <PasswordField fx:id="PassField" layoutX="564.0" layoutY="281.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;">
+               <font>
+                  <Font name="Montserrat Medium" size="13.0" />
+               </font></PasswordField>
             <Text layoutX="564.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
                <font>
                   <Font name="Montserrat Medium" size="16.0" />
                </font>
             </Text>
-            <Button layoutX="566.0" layoutY="537.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="370.0" style="-fx-background-color: #3fa2f9#3fa2f9;" text="Login" textFill="WHITE">
+            <Button layoutX="566.0" layoutY="537.0" mnemonicParsing="false" onAction="#onlogin" prefHeight="45.0" prefWidth="370.0" style="-fx-background-color: #3fa2f9#3fa2f9;" text="Login" textFill="WHITE">
                <font>
                   <Font name="Montserrat SemiBold" size="19.0" />
                </font>
@@ -62,11 +69,11 @@
                   <Font name="Montserrat Medium" size="15.0" />
                </font>
             </Text>
-            <Text fill="#0092f3" layoutX="788.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forget Password ?">
+            <Button layoutX="775.0" layoutY="328.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Forget Password ?" textFill="#0092f3">
                <font>
                   <Font name="Montserrat Medium" size="15.0" />
                </font>
-            </Text>
+            </Button>
             <Line endX="14.54107666015625" layoutX="672.0" layoutY="397.0" startX="-100.0" stroke="#adaaaa" />
             <Line endX="14.54107666015625" layoutX="907.0" layoutY="397.0" startX="-100.0" stroke="#adaaaa" />
             <Text fill="#adaaaa" layoutX="706.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="or Login with ">
@@ -76,14 +83,27 @@
             </Text>
             <ImageView fitHeight="33.0" fitWidth="32.0" layoutX="688.0" layoutY="437.0">
                <image>
-                  <Image url="@../../../../Study/Sem%202/Project%20Resources/search.png" />
+                  <Image url="@../Images/Google.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="33.0" fitWidth="38.0" layoutX="766.0" layoutY="435.0">
                <image>
-                  <Image url="@../../../../Study/Sem%202/Project%20Resources/facebook.png" />
+                  <Image url="@../Images/facebook.png" />
                </image>
             </ImageView>
+            <Pane prefHeight="39.0" prefWidth="991.0" style="-fx-background-color: #f3f3f3;" styleClass="mainFxmlClass" stylesheets="@../CSS/PanelRadius.css">
+               <children>
+                  <Button fx:id="red" layoutX="-1.0" layoutY="4.0" mnemonicParsing="false" onAction="#onQuit" prefHeight="20.0" prefWidth="24.0" style="-fx-background-color: transparent;">
+                     <font>
+                        <Font name="Montserrat SemiBold" size="16.0" />
+                     </font>
+                     <graphic>
+                        <Circle fill="#ff5f57" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                     </graphic>
+                  </Button>
+               </children></Pane>
+            <Circle fill="#ffbc2f" layoutX="43.0" layoutY="19.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#27c940" layoutX="69.0" layoutY="19.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
          </children>
          <effect>
             <DropShadow height="125.78" offsetX="10.0" offsetY="10.0" radius="62.6" width="126.62">

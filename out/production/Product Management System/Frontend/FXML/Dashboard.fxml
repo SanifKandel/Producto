@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootstage" prefHeight="900.0" prefWidth="1400.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Dashboard">
+   <children>
+      <AnchorPane layoutX="169.0" layoutY="73.0" prefHeight="685.0" prefWidth="1080.0" style="-fx-background-color: linear-gradient(#06beb6, #6dd5ed);" styleClass="mainFxmlClass" stylesheets="@../CSS/Borderradius.css">
+         <children>
+            <Pane layoutY="-1.0" prefHeight="32.0" prefWidth="1080.0" style="-fx-background-color: #f3f3f3;" styleClass="mainFxmlClass" stylesheets="@../CSS/PanelRadius.css">
+               <children>
+                  <Button fx:id="red" layoutX="11.0" layoutY="1.0" mnemonicParsing="false" onAction="#onQuit" prefHeight="20.0" prefWidth="24.0" style="-fx-background-color: transparent;">
+                     <font>
+                        <Font name="Montserrat SemiBold" size="16.0" />
+                     </font>
+                     <graphic>
+                        <Circle fill="#ff5f57" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                     </graphic>
+                  </Button>
+                  <Circle fill="#ffbc2f" layoutX="55.0" layoutY="16.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                  <Circle fill="#27c940" layoutX="82.0" layoutY="16.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+               </children>
+            </Pane>
+            <TableView fx:id="tableView" layoutX="282.0" layoutY="104.0" onMouseClicked="#select" prefHeight="466.0" prefWidth="798.0" style="-fx-background-color: #ebf7fc#ebf7fc;">
+              <columns>
+                <TableColumn fx:id="IDlist" prefWidth="75.0" style="-fx-background-color: #a3e2ff#a3e2ff; -fx-border-color: white;" text="Product ID" />
+                <TableColumn fx:id="productlist" prefWidth="281.2730712890625" style="-fx-background-color: #a3e2ff#a3e2ff; -fx-border-color: white;" text="Product Name" />
+                  <TableColumn fx:id="categorylist" prefWidth="203.93243408203125" style="-fx-background-color: #a3e2ff#a3e2ff; -fx-border-color: white;" text="Category" />
+                  <TableColumn fx:id="unitlist" prefWidth="135.15948486328125" style="-fx-background-color: #a3e2ff#a3e2ff; -fx-border-color: white;" text="Unit Cost" />
+                  <TableColumn fx:id="quantitylist" prefWidth="104.8404541015625" style="-fx-background-color: #a3e2ff#a3e2ff; -fx-border-color: white;" text="Quantity" />
+              </columns>
+            </TableView>
+            <VBox layoutX="14.0" layoutY="148.0" prefHeight="422.0" prefWidth="258.0">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Product ID">
+                     <font>
+                        <Font name="Montserrat Medium" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="ProductIDField" prefHeight="39.0" prefWidth="245.0" promptText="Enter product ID here" style="-fx-background-color: #ededed#ededed #ededed#ededed;">
+                     <font>
+                        <Font name="Montserrat Medium" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="15.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Name">
+                     <font>
+                        <Font name="Montserrat Medium" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField fx:id="ProductField" prefHeight="39.0" prefWidth="245.0" promptText="Enter product name here" style="-fx-background-color: #ededed#ededed #ededed#ededed;">
+                     <VBox.margin>
+                        <Insets right="15.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Montserrat Medium" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Category">
+                     <font>
+                        <Font name="Montserrat Medium" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField fx:id="CategoryField" prefHeight="39.0" prefWidth="245.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;">
+                     <VBox.margin>
+                        <Insets right="15.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Montserrat Medium" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Cost">
+                     <font>
+                        <Font name="Montserrat Medium" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField fx:id="UnitCostField" prefHeight="39.0" prefWidth="245.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;">
+                     <VBox.margin>
+                        <Insets right="15.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Montserrat Medium" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
+                     <font>
+                        <Font name="Montserrat Medium" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField fx:id="QuantityField" prefHeight="39.0" prefWidth="245.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;">
+                     <VBox.margin>
+                        <Insets right="15.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Montserrat Medium" size="15.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <Button fx:id="AddBtn" layoutX="13.0" layoutY="583.0" mnemonicParsing="false" onAction="#add" prefHeight="32.0" prefWidth="245.0" style="-fx-background-color: #4CAF50;" text="ADD" textFill="WHITE">
+               <font>
+                  <Font name="Montserrat SemiBold" size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="Resetbtn" layoutX="349.0" layoutY="602.0" mnemonicParsing="false" onAction="#clear" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #3fa2f9#3fa2f9 #3fa2f9#3fa2f9;" text="RESET" textFill="WHITE">
+               <font>
+                  <Font name="Montserrat SemiBold" size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="Updatebtn" layoutX="632.0" layoutY="602.0" mnemonicParsing="false" onAction="#update" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #3fa2f9#3fa2f9 #3fa2f9#3fa2f9;" text="UPDATE" textFill="WHITE">
+               <font>
+                  <Font name="Montserrat SemiBold" size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="Deletebtn" layoutX="907.0" layoutY="601.0" mnemonicParsing="false" onAction="#delete" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #3fa2f9#3fa2f9 #3fa2f9#3fa2f9;" text="DELETE" textFill="WHITE">
+               <font>
+                  <Font name="Montserrat SemiBold" size="16.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="49.0" fitWidth="53.0" layoutX="19.0" layoutY="79.0">
+               <image>
+                  <Image url="@../Images/box.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="83.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Producto" wrappingWidth="151.3764311420124">
+               <font>
+                  <Font name="Ananda Namaste" size="36.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="568.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Our Products">
+               <font>
+                  <Font name="Montserrat SemiBold" size="33.0" />
+               </font>
+            </Text>
+         </children>
+         <effect>
+            <DropShadow height="126.63" offsetX="10.0" offsetY="10.0" radius="62.8125" width="126.62">
+               <color>
+                  <Color opacity="0.3290322721004486" />
+               </color>
+            </DropShadow>
+         </effect></AnchorPane>
+   </children>
+</AnchorPane>
