@@ -48,7 +48,10 @@
                   <Font name="Montserrat Medium" size="16.0" />
                </font>
             </Text>
-            <TextField fx:id="EmailField" layoutX="572.0" layoutY="261.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
+            <TextField fx:id="EmailField" layoutX="572.0" layoutY="261.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;">
+               <font>
+                  <Font name="Montserrat Medium" size="13.0" />
+               </font></TextField>
             <Text layoutX="573.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
                <font>
                   <Font name="Montserrat Medium" size="16.0" />
@@ -59,19 +62,28 @@
                   <Font name="Montserrat Medium" size="16.0" />
                </font>
             </Text>
-            <TextField fx:id="PhoneNo" layoutX="572.0" layoutY="341.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
+            <TextField fx:id="PhoneNo" layoutX="572.0" layoutY="341.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;">
+               <font>
+                  <Font name="Montserrat Medium" size="13.0" />
+               </font></TextField>
             <Text layoutX="574.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
                <font>
                   <Font name="Montserrat Medium" size="16.0" />
                </font>
             </Text>
-            <TextField fx:id="password" layoutX="572.0" layoutY="424.0" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
+            <TextField fx:id="password" layoutX="572.0" layoutY="424.0" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;">
+               <font>
+                  <Font name="Montserrat Medium" size="13.0" />
+               </font></TextField>
             <Text layoutX="777.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm">
                <font>
                   <Font name="Montserrat Medium" size="16.0" />
                </font>
             </Text>
-            <TextField fx:id="Confirm" layoutX="777.0" layoutY="424.0" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
+            <TextField fx:id="Confirm" layoutX="777.0" layoutY="424.0" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;">
+               <font>
+                  <Font name="Montserrat Medium" size="13.0" />
+               </font></TextField>
             <CheckBox fx:id="Tick" layoutX="576.0" layoutY="491.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="15.0" textFill="DARKGRAY" />
             <Text fill="DARKGRAY" layoutX="599.0" layoutY="501.0" strokeType="OUTSIDE" strokeWidth="0.0" text="By creating an account, you agree to the Terms &amp; Conditions, and Privacy Policy." wrappingWidth="345.7958984375">
                <font>

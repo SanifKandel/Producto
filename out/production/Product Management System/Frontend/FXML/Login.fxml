@@ -40,13 +40,19 @@
                   <Font name="Montserrat SemiBold" size="30.0" />
                </font>
             </Text>
-            <TextField fx:id="EmailField" layoutX="563.0" layoutY="184.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
+            <TextField fx:id="EmailField" layoutX="563.0" layoutY="184.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;">
+               <font>
+                  <Font name="Montserrat Medium" size="13.0" />
+               </font></TextField>
             <Text layoutX="563.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
                <font>
                   <Font name="Montserrat Medium" size="16.0" />
                </font>
             </Text>
-            <PasswordField fx:id="PassField" layoutX="564.0" layoutY="281.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;" />
+            <PasswordField fx:id="PassField" layoutX="564.0" layoutY="281.0" prefHeight="39.0" prefWidth="363.0" style="-fx-background-color: #ededed#ededed #ededed#ededed;">
+               <font>
+                  <Font name="Montserrat Medium" size="13.0" />
+               </font></PasswordField>
             <Text layoutX="564.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
                <font>
                   <Font name="Montserrat Medium" size="16.0" />
