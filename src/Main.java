@@ -29,7 +29,7 @@ public class Main extends Application {
         }
     }
 
-    // This method help to drag the stage
+    //  This method help to drag the stage
     public static void stageDragable(Parent root, Stage stage) {
         root.setOnMousePressed(mouseEvent -> {
             xOffset = mouseEvent.getSceneX();
