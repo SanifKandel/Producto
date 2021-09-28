@@ -20,11 +20,11 @@
     <a href="https://github.com/SanifKandel/Producto"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Sanif-Kandel/Producto">View Demo</a>
+    <a href="https://github.com/SanifKandel/Producto">View Demo</a>
     ·
-    <a href="https://github.com/Sanif-Kandel/Producto/issues">Report Bug</a>
+    <a href="https://github.com/SanifKandel/Producto/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Sanif-Kandel/Producto/issues">Request Feature</a>
+    <a href="https://github.com/SanifKandel/Producto/issues">Request Feature</a>
   </p>
 </p>
 
