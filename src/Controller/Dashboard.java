@@ -22,6 +22,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -35,7 +36,8 @@ public class Dashboard implements Initializable {
 
     Connection Conn;
     DatabaseConnection Db = new DatabaseConnection();
-    @FXML private AnchorPane rootstage;
+    @FXML
+    private AnchorPane rootstage;
     @FXML
     private TextField ProductIDField;
     @FXML
@@ -72,7 +74,7 @@ public class Dashboard implements Initializable {
     private TableColumn<Products, Integer> quantitylist;
 
 
-    // For Add button
+    // This Method is for Add button
     @FXML
     private boolean add() throws SQLException {
 
@@ -88,8 +90,6 @@ public class Dashboard implements Initializable {
             adduser.executeUpdate();
             showProduct();
             adduser.close();
-           // Conn.close();
-
             return true;
 
         } else {
@@ -97,7 +97,7 @@ public class Dashboard implements Initializable {
         }
     }
 
-    // For reset button
+    // This Method is for Reset button
     @FXML
     private void clear() throws SQLException {
         ProductIDField.setText(" ");
@@ -107,51 +107,48 @@ public class Dashboard implements Initializable {
         QuantityField.setText(" ");
     }
 
-    // TO delete
+    // This Method is for delete button
 
     @FXML
-    private void delete() throws SQLException{
+    private void delete() throws SQLException {
         Statement st;
         Products selected;
         Connection Conn = Db.getConnection();
         selected = tableView.getSelectionModel().getSelectedItem();
-        String query = "DELETE FROM tbl_prdetails WHERE product_id  =" +selected.getId();
-        try{
+        String query = "DELETE FROM tbl_prdetails WHERE product_id  =" + selected.getId();
+        try {
             st = Conn.prepareStatement(query);
             st.execute(query);
-            showProduct();;
-        }
-        catch(Exception e){
+            showProduct();
+        } catch (Exception e) {
             e.printStackTrace();
 
         }
 
     }
 
-    // To select
+    // This method is to select a row in Tableview
     @FXML
-    private void select(){
+    private void select() {
         int index = tableView.getSelectionModel().getSelectedIndex();
-        if(index <= -1){
+        if (index <= -1) {
             return;
 
         }
         ProductIDField.setText(IDlist.getCellData(index).toString());
-        ProductField.setText(productlist.getCellData(index).toString());
-        CategoryField.setText(categorylist.getCellData(index).toString());
-        UnitCostField.setText(unitlist.getCellData(index).toString());
+        ProductField.setText(productlist.getCellData(index));
+        CategoryField.setText(categorylist.getCellData(index));
+        UnitCostField.setText(unitlist.getCellData(index));
         QuantityField.setText(quantitylist.getCellData(index).toString());
     }
 
-    //To update
+    //This method is for update button
     @FXML
     private boolean update() throws SQLException {
         Connection Conn = Db.getConnection();
-
-
         if (Conn != null) {
 
-            PreparedStatement updateuser = Conn.prepareStatement("Update tbl_prdetails set product_id = ?,  product_name = ?,category = ?,unit_cost = ?,quantity = ? WHERE product_id="+ProductIDField.getText());
+            PreparedStatement updateuser = Conn.prepareStatement("Update tbl_prdetails set product_id = ?,  product_name = ?,category = ?,unit_cost = ?,quantity = ? WHERE product_id=" + ProductIDField.getText());
             updateuser.setString(1, ProductIDField.getText());
             updateuser.setString(2, ProductField.getText());
             updateuser.setString(3, CategoryField.getText());
@@ -161,22 +158,16 @@ public class Dashboard implements Initializable {
             showProduct();
             updateuser.close();
             return true;
-
-
-        }
-        else{
+        } else {
             return false;
 
         }
     }
 
 
-
-
-
-    // To display in Table View
+    // This method is to display data in Table View
     @Override
-    public void initialize(URL location, ResourceBundle resources)  {
+    public void initialize(URL location, ResourceBundle resources) {
         try {
             showProduct();
         } catch (SQLException throwables) {
@@ -196,8 +187,8 @@ public class Dashboard implements Initializable {
             st = Conn.createStatement();
             rs = st.executeQuery(query);
             Products products;
-            while(rs.next()) {
-                products = new Products(rs.getInt("product_id"),rs.getString("product_name"),rs.getString("category"),rs.getString("unit_cost"),rs.getInt("quantity"));
+            while (rs.next()) {
+                products = new Products(rs.getInt("product_id"), rs.getString("product_name"), rs.getString("category"), rs.getString("unit_cost"), rs.getInt("quantity"));
                 productList.add(products);
             }
         } catch (Exception e) {
@@ -209,19 +200,19 @@ public class Dashboard implements Initializable {
     public void showProduct() throws SQLException {
         ObservableList<Products> list = getProductList();
 
-        IDlist.setCellValueFactory(new PropertyValueFactory<Products,Integer>("id"));
-        productlist.setCellValueFactory(new PropertyValueFactory<Products,String>("p_name"));
-        categorylist.setCellValueFactory(new PropertyValueFactory<Products,String>("ctg"));
-        unitlist.setCellValueFactory(new PropertyValueFactory<Products,String>("u_cost"));
-        quantitylist.setCellValueFactory(new PropertyValueFactory<Products,Integer>("qnt"));
+        IDlist.setCellValueFactory(new PropertyValueFactory<Products, Integer>("id"));
+        productlist.setCellValueFactory(new PropertyValueFactory<Products, String>("p_name"));
+        categorylist.setCellValueFactory(new PropertyValueFactory<Products, String>("ctg"));
+        unitlist.setCellValueFactory(new PropertyValueFactory<Products, String>("u_cost"));
+        quantitylist.setCellValueFactory(new PropertyValueFactory<Products, Integer>("qnt"));
 
         tableView.setItems(list);
     }
 
 
-    // For the quit button
+    // This method is used by close button/icon to quit the window.
     @FXML
-    public void onQuit(ActionEvent actionEvent){
+    public void onQuit(ActionEvent actionEvent) {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(.4), rootstage);
         ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(.4), rootstage);
@@ -229,7 +220,6 @@ public class Dashboard implements Initializable {
         scaleTransition.setInterpolator(Interpolator.EASE_IN);
 
         scaleTransition.setByX(.05);
-
 
 
         fadeTransition.setInterpolator(Interpolator.EASE_IN);

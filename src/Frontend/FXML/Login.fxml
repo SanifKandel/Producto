@@ -30,7 +30,7 @@
                   <Font name="Montserrat Medium" size="15.0" />
                </font>
             </Text>
-            <Button layoutX="752.0" layoutY="492.0" mnemonicParsing="false" onAction="#switchtosignup" style="-fx-background-color: transparent;" text="Create an Account" textFill="#0092f3">
+            <Button layoutX="752.0" layoutY="492.0" mnemonicParsing="false" onAction="#switchToSignup" style="-fx-background-color: transparent;" text="Create an Account" textFill="#0092f3">
                <font>
                   <Font name="Montserrat Medium" size="15.0" />
                </font>

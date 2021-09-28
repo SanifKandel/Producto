@@ -51,17 +51,13 @@ public class Login {
     private Button red;
     @FXML
     private Circle yellow;
-//    @FXML private Button ForgetPassword;
-//    @FXML private Button CreateAccount;
-
-
-    public void redOnAction(ActionEvent event) {
-        stage = (Stage) red.getScene().getWindow();
-        stage.close();
-    }
 
     @FXML
-    private void switchtosignup(ActionEvent singupevent) {
+    private Button CreateAccount;
+
+    // This method changes the window and switch to register page
+    @FXML
+    private void switchToSignup(ActionEvent singupevent) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Frontend/FXML/Registration.fxml"));
             root = fxmlLoader.load();
@@ -88,6 +84,8 @@ public class Login {
 
     }
 
+    //This method checks the validity of email and password
+
     private boolean logvalidity() {
         if (EmailField.getText() == null || EmailField.getText().length() <= 10) {
             errorAlert.setTitle("Error");
@@ -107,7 +105,7 @@ public class Login {
         return true;
     }
 
-
+    //This method checks the email and password from the database tbl_user
     private boolean user() throws SQLException {
         Connection Conn = Db.getConnection();
 
@@ -133,9 +131,7 @@ public class Login {
         return false;
     }
 
-    // Method ma event dyacha vaneh argument k diney
-
-
+    //This method changes the Scene to Window after Log in
     @FXML
     private void switchtoDashboard(ActionEvent dashboard) {
         try {
@@ -152,7 +148,7 @@ public class Login {
         }
     }
 
-
+    // This method is used by close button/icon to quit the window.
     @FXML
     public void onQuit(ActionEvent actionEvent) {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -180,6 +176,7 @@ public class Login {
         });
     }
 
+    // This method help to drag the stage
     public static void stageDragable(Parent root, Stage stage) {
         root.setOnMousePressed(mouseEvent -> {
             xOffset = mouseEvent.getSceneX();

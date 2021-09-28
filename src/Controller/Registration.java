@@ -34,8 +34,8 @@ public class Registration {
     static double xOffset, yOffset;
     Connection Conn;
     DatabaseConnection Db = new DatabaseConnection();
-
     Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+
     @FXML
     private AnchorPane rootstage;
     @FXML
@@ -57,6 +57,8 @@ public class Registration {
     @FXML
     private CheckBox Tick;
 
+
+    // This method checks the validity of all Text Fields to make sure valid data are added
     private boolean validity() {
         if (Fullname.getText() == null || Fullname.getText().length() < 3) {
             errorAlert.setTitle("Error");
@@ -100,6 +102,7 @@ public class Registration {
         }
     }
 
+    // This method checks gmail validity i.e. ending with "@gmail.com"
     private  boolean checkEmail(){
         String email = EmailField.getText().strip();
         StringBuilder checkDomain= new StringBuilder();
@@ -117,8 +120,8 @@ public class Registration {
     @FXML
     private void register(ActionEvent e) throws SQLException {
         if (validity()) {
-            if (adduser()) {
-                switchtologin(e);
+            if (addUser()) {
+                switchToLogin(e);
             } else {
                 System.out.println("Database is not connected");
             }
@@ -128,8 +131,8 @@ public class Registration {
     }
 
 
-    // Registration of User
-    private boolean adduser() throws SQLException {
+    // This method add the user input data in tbl_user and they are registered
+    private boolean addUser() throws SQLException {
 
         Connection Conn = Db.getConnection();
 
@@ -150,8 +153,9 @@ public class Registration {
         }
     }
 
+    // This method changes the window and switch to Login
     @FXML
-    private void switchtologin(ActionEvent singupevent) {
+    private void switchToLogin(ActionEvent singupevent) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Frontend/FXML/Login.fxml"));
             root = fxmlLoader.load();
@@ -167,6 +171,7 @@ public class Registration {
 
     }
 
+    // This method is used by close button/icon to quit the window.
     @FXML
     public void onQuit(ActionEvent actionEvent) {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -194,6 +199,7 @@ public class Registration {
         });
     }
 
+    // This method help to drag the stage
     public static void stageDragable(Parent root, Stage stage) {
         root.setOnMousePressed(mouseEvent -> {
             xOffset = mouseEvent.getSceneX();

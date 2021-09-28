@@ -5,10 +5,11 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
 import java.util.Objects;
 
 public class Main extends Application {
-    static double  xOffset, yOffset;
+    static double xOffset, yOffset;
 
 
     @Override
@@ -19,7 +20,7 @@ public class Main extends Application {
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
             primaryStage.setScene(scene);
-            stageDragable(root,primaryStage);
+            stageDragable(root, primaryStage);
             primaryStage.initStyle(StageStyle.TRANSPARENT);
             primaryStage.show();
 
@@ -27,17 +28,20 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
-    public static void stageDragable(Parent root, Stage stage){
+
+    // This method help to drag the stage
+    public static void stageDragable(Parent root, Stage stage) {
         root.setOnMousePressed(mouseEvent -> {
             xOffset = mouseEvent.getSceneX();
             yOffset = mouseEvent.getSceneY();
         });
 
         root.setOnMouseDragged(mouseEvent -> {
-            stage.setX(mouseEvent.getScreenX()-xOffset);
-            stage.setY(mouseEvent.getScreenY()-yOffset);
+            stage.setX(mouseEvent.getScreenX() - xOffset);
+            stage.setY(mouseEvent.getScreenY() - yOffset);
         });
     }
+
     public static void main(String[] args) {
         launch(args);
     }
