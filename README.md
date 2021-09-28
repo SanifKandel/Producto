@@ -17,7 +17,7 @@
   <p align="center">
     Keep the list of all your product in a single place.
     <br />
-    <a href="https://github.com/Sanif-Kandel/Producto"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/SanifKandel/Producto"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/Sanif-Kandel/Producto">View Demo</a>
