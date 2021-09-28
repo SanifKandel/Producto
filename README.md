@@ -76,8 +76,7 @@ Producto is free to use and open source. So, You can also contribute to this pro
 
 ### Built With
 
-[![Product Name Screen Shot][tools-used]](https://github.com/Anurag-Bharati/Twilight/blob/main/src/main/resources/ToolsUsed.gif)
-
+![Java](https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg)
 * [Java 16](https://www.oracle.com/java/technologies/downloads/)
 * [JavaFx](https://openjfx.io/)
 * [SceneBuilder](https://gluonhq.com/products/scene-builder/)
