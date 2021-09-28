@@ -49,13 +49,49 @@ public class UnitTest {
         boolean actual = false;
         Connection Conn = Db.getConnection();
         PreparedStatement adduser = Conn.prepareStatement("DELETE FROM tbl_prdetails WHERE product_id  = ?");
-        adduser.setString(1,"3");
+        adduser.setString(1,"18");
         int save = adduser.executeUpdate();
         if (save != 0){
             actual =true;
         }
         assertTrue(actual);
     }
+
+    @Test
+    public void register() throws SQLException {
+        boolean actual = false;
+        Connection Conn = Db.getConnection();
+        PreparedStatement adduser = Conn.prepareStatement("insert into tbl_prdetails(product_id,product_name,category,unit_cost,quantity) values (?,?,?,?,?)");
+        adduser.setString(1, "19");
+        adduser.setString(2,"Earphone");
+        adduser.setString(3, "Gadgets");
+        adduser.setString(4, "50");
+        adduser.setString(5, "20");
+        int save = adduser.executeUpdate();
+        if (save != 0){
+            actual =true;
+        }
+        assertTrue(actual);
+    }
+
+    @Test
+    public void update() throws SQLException {
+        boolean actual = false;
+        Connection Conn = Db.getConnection();
+        PreparedStatement adduser = Conn.prepareStatement("Update tbl_prdetails set product_id = ?,  product_name = ?,category = ?,unit_cost = ?,quantity = ? WHERE product_id= 7" );
+        adduser.setString(1, "8");
+        adduser.setString(2,"MacBook Pro");
+        adduser.setString(3, "Gadgets");
+        adduser.setString(4, "1,90,000");
+        adduser.setString(5, "20");
+        int save = adduser.executeUpdate();
+        if (save != 0){
+            actual =true;
+        }
+        assertTrue(actual);
+    }
+
+
 
 }
 
