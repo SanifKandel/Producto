@@ -60,7 +60,7 @@
 
 
 
-  [![Product Name Screen Shot][product-screenshot]](https://github.com/SanifKandel/Producto/blob/sanif/src/Frontend/Images/MainPage.png)
+  ![Product Name Screen Shot](https://github.com/SanifKandel/Producto/blob/sanif/src/Frontend/Images/MainPage.png)
 
 
 Producto is a software to keep record of all your products.
