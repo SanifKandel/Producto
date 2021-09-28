@@ -16,21 +16,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
-
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
-import javax.swing.*;
-import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 public class Dashboard implements Initializable {
     Stage stage;
@@ -150,25 +145,32 @@ public class Dashboard implements Initializable {
 
     //To update
     @FXML
-    private void update() throws SQLException {
+    private boolean update() throws SQLException {
+        Connection Conn = Db.getConnection();
 
-        try{
-            Connection Conn = Db.getConnection();
-            PreparedStatement adduser = Conn.prepareStatement("Update into tbl_prdetails(product_id,product_name,category,unit_cost,quantity) values (?,?,?,?,?)");
-            adduser.setString(1, ProductIDField.getText());
-            adduser.setString(2, ProductField.getText());
-            adduser.setString(3, CategoryField.getText());
-            adduser.setString(4, UnitCostField.getText());
-            adduser.setString(5, QuantityField.getText());
-            adduser.executeUpdate();
+
+        if (Conn != null) {
+
+            PreparedStatement updateuser = Conn.prepareStatement("Update tbl_prdetails set product_id = ?,  product_name = ?,category = ?,unit_cost = ?,quantity = ? WHERE product_id="+ProductIDField.getText());
+            updateuser.setString(1, ProductIDField.getText());
+            updateuser.setString(2, ProductField.getText());
+            updateuser.setString(3, CategoryField.getText());
+            updateuser.setString(4, UnitCostField.getText());
+            updateuser.setString(5, QuantityField.getText());
+            updateuser.executeUpdate();
             showProduct();
-            adduser.close();
+            updateuser.close();
+            return true;
 
-        }catch(Exception e){
 
         }
+        else{
+            return false;
 
+        }
     }
+
+
 
 
 

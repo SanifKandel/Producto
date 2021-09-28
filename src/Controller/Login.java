@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -28,19 +29,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Login {
     DatabaseConnection Db = new DatabaseConnection();
+
+    Alert errorAlert = new Alert(Alert.AlertType.ERROR);
     Stage stage;
     Scene scene;
     Parent root;
     static double xOffset, yOffset;
 
-    @FXML private AnchorPane rootstage;
+    @FXML
+    private AnchorPane rootstage;
     @FXML
     private Button login;
     @FXML
@@ -77,6 +77,37 @@ public class Login {
 
     }
 
+    @FXML
+    private void onlogin(ActionEvent logine) throws SQLException {
+
+        if (logvalidity() && user()) {
+            stage = (Stage) ((Node) logine.getSource()).getScene().getWindow();
+            stage.close();
+            switchtoDashboard(logine);
+        }
+
+    }
+
+    private boolean logvalidity() {
+        if (EmailField.getText() == null || EmailField.getText().length() <= 10) {
+            errorAlert.setTitle("Error");
+            errorAlert.setHeaderText("Invalid Email");
+            errorAlert.setContentText("Please enter a valid Email");
+            errorAlert.showAndWait();
+            return false;
+        }
+
+        if (PassField.getText() == null || PassField.getText().length() < 8) {
+            errorAlert.setTitle("Error");
+            errorAlert.setHeaderText("Invalid Password");
+            errorAlert.setContentText("Please enter a valid Password.");
+            errorAlert.showAndWait();
+            return false;
+        }
+        return true;
+    }
+
+
     private boolean user() throws SQLException {
         Connection Conn = Db.getConnection();
 
@@ -91,40 +122,21 @@ public class Login {
                 Conn.close();
                 return true;
             } else {
+                errorAlert.setTitle("Error");
+                errorAlert.setHeaderText("User Not Found");
+                errorAlert.setContentText("Please register your account");
+                errorAlert.showAndWait();
                 adduser.close();
-                Conn.close();
                 return false;
             }
         }
         return false;
     }
 
-//    @FXML
-//    private void onlogin(ActionEvent logine) throws SQLException, IOException {
-//        if (user()) {
-//            stage = (Stage) ((Node) logine.getSource()).getScene().getWindow();
-//            stage.close();
-//            switchtoDashboard();
-//
-//        }
-//    }
-//
-//    private void switchtoDashboard () throws IOException {
-//        Stage stage = new Stage();
-//        Parent root;
-//        FXMLLoader load = new FXMLLoader(getClass().getResource("Frontend/FXML/Dashboard.fxml"));
-//        load.setLocation(getClass().getResource("Frontend/FXML/Dashboard.fxml"));
-//        root = load.load();
-//        Scene scene = new Scene(root);
-//        scene.setFill(Color.TRANSPARENT);
-//        stage.setScene(scene);
-//        stageDragable(root,stage);
-//        stage.initStyle(StageStyle.TRANSPARENT);
-//        stage.show();
-//
-//    }
+    // Method ma event dyacha vaneh argument k diney
 
-@FXML
+
+    @FXML
     private void switchtoDashboard(ActionEvent dashboard) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Frontend/FXML/Dashboard.fxml"));
@@ -138,22 +150,11 @@ public class Login {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    @FXML
-    private void onlogin(ActionEvent l) throws SQLException, IOException {
-        if(user()){
-            switchtoDashboard(l);
-        }
-        else{
-            System.out.println("Surry");
-        }
-
-    }
 
     @FXML
-    public void onQuit(ActionEvent actionEvent){
+    public void onQuit(ActionEvent actionEvent) {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(.4), rootstage);
         ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(.4), rootstage);
@@ -161,7 +162,6 @@ public class Login {
         scaleTransition.setInterpolator(Interpolator.EASE_IN);
 
         scaleTransition.setByX(.05);
-
 
 
         fadeTransition.setInterpolator(Interpolator.EASE_IN);
@@ -191,7 +191,6 @@ public class Login {
             stage.setY(mouseEvent.getScreenY() - yOffset);
         });
     }
-
 
 
 }

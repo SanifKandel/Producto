@@ -5,7 +5,6 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.util.Objects;
 
 public class Main extends Application {
@@ -16,7 +15,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Frontend/FXML/Dashboard.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Frontend/FXML/Login.fxml")));
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
             primaryStage.setScene(scene);

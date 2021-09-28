@@ -86,6 +86,9 @@
                      <VBox.margin>
                         <Insets right="15.0" top="5.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Montserrat Medium" size="15.0" />
+                     </font>
                   </TextField>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Cost">
                      <font>
@@ -99,6 +102,9 @@
                      <VBox.margin>
                         <Insets right="15.0" top="5.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Montserrat Medium" size="15.0" />
+                     </font>
                   </TextField>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
                      <font>
@@ -112,10 +118,13 @@
                      <VBox.margin>
                         <Insets right="15.0" top="5.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Montserrat Medium" size="15.0" />
+                     </font>
                   </TextField>
                </children>
             </VBox>
-            <Button fx:id="AddBtn" layoutX="69.0" layoutY="588.0" mnemonicParsing="false" onAction="#add" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #3fa2f9#3fa2f9 #3fa2f9#3fa2f9;" text="ADD" textFill="WHITE">
+            <Button fx:id="AddBtn" layoutX="13.0" layoutY="583.0" mnemonicParsing="false" onAction="#add" prefHeight="32.0" prefWidth="245.0" style="-fx-background-color: #4CAF50;" text="ADD" textFill="WHITE">
                <font>
                   <Font name="Montserrat SemiBold" size="16.0" />
                </font>

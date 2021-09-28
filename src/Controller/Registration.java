@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 
+import javax.swing.*;
 import java.io.IOException;
 import java.sql.*;
 
@@ -33,7 +34,10 @@ public class Registration {
     static double xOffset, yOffset;
     Connection Conn;
     DatabaseConnection Db = new DatabaseConnection();
-    @FXML private AnchorPane rootstage;
+
+    Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+    @FXML
+    private AnchorPane rootstage;
     @FXML
     private Button createaccount;
     @FXML
@@ -53,65 +57,89 @@ public class Registration {
     @FXML
     private CheckBox Tick;
 
-    public void redOnAction(ActionEvent event) {
-        Stage stage = (Stage) red.getScene().getWindow();
-        stage.close();
+    private boolean validity() {
+        if (Fullname.getText() == null || Fullname.getText().length() < 3) {
+            errorAlert.setTitle("Error");
+            errorAlert.setHeaderText("Invalid Username");
+            errorAlert.setContentText("Please enter a valid Username");
+            errorAlert.showAndWait();
+            return false;
+        }
+
+        if (EmailField.getText() == null || EmailField.getText().length() <= 10 || !checkEmail()) {
+            errorAlert.setTitle("Error");
+            errorAlert.setHeaderText("Invalid Email");
+            errorAlert.setContentText("Please enter a valid Email.");
+            errorAlert.showAndWait();
+            return false;
+        }
+
+        if (PhoneNo.getText() == null || PhoneNo.getText().length() < 10) {
+            errorAlert.setTitle("Error");
+            errorAlert.setHeaderText("Invalid Phone Number");
+            errorAlert.setContentText("Please enter a valid Phone No.");
+            errorAlert.showAndWait();
+            return false;
+        }
+
+        if (password.getText() == null || password.getText().length() < 8) {
+            errorAlert.setTitle("Error");
+            errorAlert.setHeaderText("Invalid Username");
+            errorAlert.setContentText("Please enter a valid Username");
+            errorAlert.showAndWait();
+            return false;
+        }
+        if (!password.getText().equals(Confirm.getText())) {
+            errorAlert.setTitle("Error");
+            errorAlert.setHeaderText("Password Error");
+            errorAlert.setContentText("Password and Confirm Password doesn't match.");
+            errorAlert.showAndWait();
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private  boolean checkEmail(){
+        String email = EmailField.getText().strip();
+        StringBuilder checkDomain= new StringBuilder();
+        StringBuilder checkDomainResult= new StringBuilder();
+        checkDomain.append(email);
+        checkDomain.reverse();
+        for(int i = 0; i<10;i++){
+
+            checkDomainResult.append(checkDomain.charAt(i));
+
+        }
+        return checkDomainResult.toString().equals("moc.liamg@");
     }
 
     @FXML
     private void register(ActionEvent e) throws SQLException {
+        if (validity()) {
+            if (adduser()) {
+                switchtologin(e);
+            } else {
+                System.out.println("Database is not connected");
+            }
 
-        //Alert a = new Alert(Alert.AlertType.NONE);
-//        if (adduser()) {
-//            switchtologin(e);
-//        }
-
-//         else {
-//            if (Fullname.getText().isEmpty()) {
-//                a.setAlertType(Alert.AlertType.ERROR);
-//            }
-//            if (EmailField.getText().isEmpty()) {
-//                a.setAlertType(Alert.AlertType.ERROR);
-//            }
-//            if (PhoneNo.getText().isEmpty()) {
-//                a.setAlertType(Alert.AlertType.ERROR);
-//            }
-//            if (password.getText().isEmpty()) {
-//                a.setAlertType(Alert.AlertType.ERROR);
-//            }
-//        if(emailField.getText().isEmpty()) {
-//            showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Form Error!", "Please enter your email id");
-//            return;
-//        }
-//        if(passwordField.getText().isEmpty()) {
-//            showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Form Error!", "Please enter a password");
-//            return;
-
-
-        if (adduser()) {
-            switchtologin(e);
-
-        } else {
-            System.out.println("Falseee");
         }
+
     }
 
 
+    // Registration of User
     private boolean adduser() throws SQLException {
 
         Connection Conn = Db.getConnection();
 
         if (Conn != null) {
+
             PreparedStatement adduser = Conn.prepareStatement("insert into tbl_user(user_name,email,phone_No,password) values (?,?,?,?)");
             adduser.setString(1, Fullname.getText());
             adduser.setString(2, EmailField.getText());
             adduser.setString(3, PhoneNo.getText());
-            if (password.getText().equals(Confirm.getText())) {
-                adduser.setString(4, password.getText());
-            }
-            else{
-                System.out.println("Make epual");
-            }
+            adduser.setString(4, password.getText());
             adduser.executeUpdate();
             adduser.close();
             Conn.close();
@@ -140,7 +168,7 @@ public class Registration {
     }
 
     @FXML
-    public void onQuit(ActionEvent actionEvent){
+    public void onQuit(ActionEvent actionEvent) {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(.4), rootstage);
         ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(.4), rootstage);
@@ -148,7 +176,6 @@ public class Registration {
         scaleTransition.setInterpolator(Interpolator.EASE_IN);
 
         scaleTransition.setByX(.05);
-
 
 
         fadeTransition.setInterpolator(Interpolator.EASE_IN);
