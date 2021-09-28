@@ -34,7 +34,7 @@
                   <Circle fill="#27c940" layoutX="82.0" layoutY="16.0" radius="8.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                </children>
             </Pane>
-            <TableView fx:id="Tableview" layoutX="282.0" layoutY="104.0" prefHeight="466.0" prefWidth="798.0" style="-fx-background-color: #ebf7fc#ebf7fc;">
+            <TableView fx:id="tableView" layoutX="282.0" layoutY="104.0" onMouseClicked="#select" prefHeight="466.0" prefWidth="798.0" style="-fx-background-color: #ebf7fc#ebf7fc;">
               <columns>
                 <TableColumn fx:id="IDlist" prefWidth="75.0" style="-fx-background-color: #a3e2ff#a3e2ff; -fx-border-color: white;" text="Product ID" />
                 <TableColumn fx:id="productlist" prefWidth="281.2730712890625" style="-fx-background-color: #a3e2ff#a3e2ff; -fx-border-color: white;" text="Product Name" />
@@ -125,12 +125,12 @@
                   <Font name="Montserrat SemiBold" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="Updatebtn" layoutX="632.0" layoutY="602.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #3fa2f9#3fa2f9 #3fa2f9#3fa2f9;" text="UPDATE" textFill="WHITE">
+            <Button fx:id="Updatebtn" layoutX="632.0" layoutY="602.0" mnemonicParsing="false" onAction="#update" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #3fa2f9#3fa2f9 #3fa2f9#3fa2f9;" text="UPDATE" textFill="WHITE">
                <font>
                   <Font name="Montserrat SemiBold" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="Deletebtn" layoutX="907.0" layoutY="601.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #3fa2f9#3fa2f9 #3fa2f9#3fa2f9;" text="DELETE" textFill="WHITE">
+            <Button fx:id="Deletebtn" layoutX="907.0" layoutY="601.0" mnemonicParsing="false" onAction="#delete" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #3fa2f9#3fa2f9 #3fa2f9#3fa2f9;" text="DELETE" textFill="WHITE">
                <font>
                   <Font name="Montserrat SemiBold" size="16.0" />
                </font>
