@@ -93,31 +93,59 @@ public class Login {
         return false;
     }
 
-    @FXML
-    private void onlogin(ActionEvent logine) throws SQLException, IOException {
-        if (user()) {
-            stage = (Stage) ((Node) logine.getSource()).getScene().getWindow();
-            stage.close();
-            switchtoDashboard();
+//    @FXML
+//    private void onlogin(ActionEvent logine) throws SQLException, IOException {
+//        if (user()) {
+//            stage = (Stage) ((Node) logine.getSource()).getScene().getWindow();
+//            stage.close();
+//            switchtoDashboard();
+//
+//        }
+//    }
+//
+//    private void switchtoDashboard () throws IOException {
+//        Stage stage = new Stage();
+//        Parent root;
+//        FXMLLoader load = new FXMLLoader(getClass().getResource("Frontend/FXML/Dashboard.fxml"));
+//        load.setLocation(getClass().getResource("Frontend/FXML/Dashboard.fxml"));
+//        root = load.load();
+//        Scene scene = new Scene(root);
+//        scene.setFill(Color.TRANSPARENT);
+//        stage.setScene(scene);
+//        stageDragable(root,stage);
+//        stage.initStyle(StageStyle.TRANSPARENT);
+//        stage.show();
+//
+//    }
 
+@FXML
+    private void switchtoDashboard(ActionEvent dashboard) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Frontend/FXML/Dashboard.fxml"));
+            root = fxmlLoader.load();
+            stage = (Stage) ((Node) dashboard.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stageDragable(root, stage);
+            scene.setFill(Color.TRANSPARENT);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-    }
-
-    private void switchtoDashboard () throws IOException {
-        Stage stage = new Stage();
-        Parent root;
-        FXMLLoader load = new FXMLLoader(getClass().getResource("Frontend/FXML/Dashboard.fxml"));
-        load.setLocation(getClass().getResource("Frontend/FXML/Dashboard.fxml"));
-        root = load.load();
-        Scene scene = new Scene(root);
-        scene.setFill(Color.TRANSPARENT);
-        stage.setScene(scene);
-        stageDragable(root,stage);
-        stage.initStyle(StageStyle.TRANSPARENT);
-        stage.show();
 
     }
 
+    @FXML
+    private void onlogin(ActionEvent l) throws SQLException, IOException {
+        if(user()){
+            switchtoDashboard(l);
+        }
+        else{
+            System.out.println("Surry");
+        }
+
+
+    }
 
     public static void stageDragable(Parent root, Stage stage) {
         root.setOnMousePressed(mouseEvent -> {
